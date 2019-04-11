@@ -13,6 +13,7 @@
 		2D2F3923225F7BCD00148D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D2F3922225F7BCD00148D1F /* Assets.xcassets */; };
 		2D2F3926225F7BCD00148D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D2F3924225F7BCD00148D1F /* LaunchScreen.storyboard */; };
 		2D2F392E225F7E0100148D1F /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F392D225F7E0100148D1F /* Capital.swift */; };
+		2D2F3930225FC4D100148D1F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F392F225FC4D100148D1F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2D2F3925225F7BCD00148D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D2F3927225F7BCD00148D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D2F392D225F7E0100148D1F /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		2D2F392F225FC4D100148D1F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				2D2F391B225F7BCB00148D1F /* AppDelegate.swift */,
 				2D2F391D225F7BCB00148D1F /* ViewController.swift */,
+				2D2F392F225FC4D100148D1F /* DetailViewController.swift */,
 				2D2F392D225F7E0100148D1F /* Capital.swift */,
 				2D2F391F225F7BCB00148D1F /* Main.storyboard */,
 				2D2F3922225F7BCD00148D1F /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				2D2F391E225F7BCB00148D1F /* ViewController.swift in Sources */,
 				2D2F391C225F7BCB00148D1F /* AppDelegate.swift in Sources */,
 				2D2F392E225F7E0100148D1F /* Capital.swift in Sources */,
+				2D2F3930225FC4D100148D1F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
