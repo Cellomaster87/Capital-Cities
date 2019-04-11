@@ -15,7 +15,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
     var progressView: UIProgressView!
     var websiteToLoad: String?
     
-    var websites = ["wikipedia.org"]
+    var allowedDomain = "wikipedia.org"
     
     // MARK: - Views Management
     override func loadView() {
@@ -52,25 +52,21 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
             progressView.progress = Float(webView.estimatedProgress)
         }
     }
-    /*
+    
     // Decide whether the navigation is allowed or not.
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url
         
         if let host = url?.host {
-            for website in websites {
-                if host.contains(website) {
-                    decisionHandler(.allow)
-                    
-                    return
-                }
+            if host.contains(allowedDomain) {
+                decisionHandler(.allow)
+                
+                return
             }
         }
-        
         let alertController = UIAlertController(title: "WARNING!", message: "This website is blocked!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alertController, animated: true)
         decisionHandler(.cancel)
     }
-    */
 }

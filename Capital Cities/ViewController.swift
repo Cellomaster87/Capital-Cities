@@ -10,8 +10,10 @@ import MapKit
 import UIKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
+    // MARK: - Properties
     @IBOutlet var mapView: MKMapView!
     
+    // MARK: - Views management
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotations([london, oslo, paris, rome, washington])
     }
     
+    // MARK: - MK Delegate Methods
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is Capital else { return nil }
         
@@ -52,21 +55,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
         guard let capital = view.annotation as? Capital else { return }
         
         let capitalTitle = capital.title
-        print(capitalTitle ?? "This value is empty")
         
         if let webViewController = storyboard?.instantiateViewController(withIdentifier: "WebView") as? DetailViewController {
             if let title = capitalTitle {
                 webViewController.title = title
-                webViewController.websiteToLoad = "https://en.wikipedia.org/wiki/" + title
-                print(webViewController.websiteToLoad ?? "Error parsing URL")
+                webViewController.websiteToLoad = "en.wikipedia.org/wiki/" + title
                 
                 navigationController?.pushViewController(webViewController, animated: true)
             }
-        } else {
-            print("Something went wrong")
         }
     }
     
+    // MARK: - Helper methods
     @objc func chooseMapType() {
         let mapTypeAC = UIAlertController(title: "Map Type", message: "Choose your preferred map type", preferredStyle: .alert)
         mapTypeAC.addAction(UIAlertAction(title: "Standard", style: .default, handler: { [weak self] _ in
