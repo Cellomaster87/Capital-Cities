@@ -15,6 +15,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map Type", style: .plain, target: self, action: #selector(chooseMapType))
+        
         let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics")
         let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.")
         let paris = Capital(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508), info: "Often called the City of Light")
@@ -55,6 +57,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let placeAC = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
         placeAC.addAction(UIAlertAction(title: "OK", style: .default))
         present(placeAC, animated: true)
+    }
+    
+    @objc func chooseMapType() {
+        let mapTypeAC = UIAlertController(title: "Map Type", message: "Choose your preferred map type", preferredStyle: .alert)
+        mapTypeAC.addAction(UIAlertAction(title: "Standard", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .standard
+        }))
+        mapTypeAC.addAction(UIAlertAction(title: "Hybrid", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .hybrid
+        }))
+        mapTypeAC.addAction(UIAlertAction(title: "Satellite", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .satellite
+        }))
+        
+        present(mapTypeAC, animated: true)
     }
 }
 
