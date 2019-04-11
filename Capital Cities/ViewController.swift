@@ -51,12 +51,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let capital = view.annotation as? Capital else { return }
         
-        let placeName = capital.title
-        let placeInfo = capital.info
+        let capitalTitle = capital.title
+        print(capitalTitle ?? "This value is empty")
         
-        let placeAC = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        placeAC.addAction(UIAlertAction(title: "OK", style: .default))
-        present(placeAC, animated: true)
+        if let webViewController = storyboard?.instantiateViewController(withIdentifier: "WebView") as? DetailViewController {
+            if let title = capitalTitle {
+                webViewController.title = title
+                webViewController.websiteToLoad = "https://en.wikipedia.org/wiki/" + title
+                print(webViewController.websiteToLoad ?? "Error parsing URL")
+                
+                navigationController?.pushViewController(webViewController, animated: true)
+            }
+        } else {
+            print("Something went wrong")
+        }
     }
     
     @objc func chooseMapType() {
